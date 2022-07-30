@@ -10,7 +10,7 @@ const addUser = () => {
   };
 
   let json = JSON.stringify(user);
-  localStorage.setItem(email, json);
+  localStorage.setItem(user.userEmail, json);
 };
 const loginFunc = (e) => {
   event.preventDefault();
@@ -21,11 +21,12 @@ const loginFunc = (e) => {
   let user = localStorage.getItem(email);
   let data = JSON.parse(user);
   if (user == null) {
-    result.innerHTML = "wrong user";
+    alert("Please enter a valid email address");
   } else if (data.userEmail == email && data.passUser == pass) {
-    result.innerHTML = "logged in";
+      // alert("logged in") ;
+       window.location.href = "../html/page.html"
   } else {
-    result.innerHTML = "not logged in";
+    alert("Please enter a valid password") ;
   }
 };
 
